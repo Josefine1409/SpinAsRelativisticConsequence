@@ -1,0 +1,108 @@
+\chapter{The Dirac Equation}
+%Most of the difficulties of the Klein-Gordon equation originate from it being a second order differential equation with respect to time. To avoid these issues Dirac tried, and in 1928 succeeded, in finding a first order differential equation with respect to time, now called the Dirac equation:
+%\begin{align}
+%	i\hbar\pdif{t}\Psi(\v{r},t) = \op{H}_D\Psi(\v{r},t) \: , \quad \op{H}_D = c\v{\alpha}\cdot\v{p} + m_0c^2\beta \: ,
+%\end{align}
+%where $\op{H}_D$ is the Dirac Hamiltonian.
+
+Most of the difficulties of the Klein-Gordon equation originate from it being a second order differential equation with respect to time. To avoid these issues Dirac tried to, and in 1928 succeed in, finding a first order differential equation with respect to both time and space. This equation should satisfy the time-evolution equation of quantum mechanics, \cref{eq:OverordnetStrukturAfQMLigning}, and the Dirac Hamiltonian, $\op{H}_D$, since considering a free particle, would only depend on the fundamental constants $c$ and $\hbar$, the mass of the particle $m$ and the first order derivative with respect to the particle's coordinates, hence the Dirac equation is
+\begin{align}
+	i\hbar\pdif{t}\Psi(\v{r},t) = \op{H}_D\Psi(\v{r},t) \: , \quad \op{H}_D = c\v{\alpha}\cdot\v{p} + m_0c^2\beta \: ,
+\end{align}
+where $\v{\alpha}$ and $\beta$ must be dimensionless coefficients since $cp$(p som vektor(?)) and $m_0c^2$ have the dimensions of energy. Also they must be independent of $p_i$ to ensure a linear dependence of the spacial derivative, the momentum, and they must not depend on the coordinates, since this would introduce a force, which shall not be present for a free particle. These independences implies commutation between the momentum and the coefficients.
+
+To gain further information about the coefficients, solutions to the Dirac equation is required to also satisfy the Klein-Gordon equation to secure correct relation between energy and momentum, hence the Dirac Hamiltonian squared must equal the Klein-Gordon Hamiltonian, since the Klein-Gordon equation yields $E^2\Psi = \op{H}_{KG}\Psi$ and the Dirac equation $E\Psi = \op{H}_D\Psi$.
+\begin{align} \label{eq:KG=Dirac^2}
+	c^2\v{p}^2 + m_0^2c^4 &= \left(c\v{\alpha}\cdot\v{p} + m_0c^2\beta\right)^2
+	= c^2\left(\v{\alpha}\cdot\v{p}\right)^2 + m_0^2c^4\beta^2 + m_0c^3\left\{\left(\v{\alpha}\cdot\v{p}\right),\beta\right\} \: ,
+\end{align}
+where $\{\op{A},\op{B}\} = \op{A}\op{B} + \op{B}\op{A}$ is the anticommutator. From \cref{eq:KG=Dirac^2} it can be seen that $c^2\left(\v{\alpha}\cdot\v{p}\right)^2$ must yield $c^2\v{p}^2$ since it is the only term of second order in momentum and in light speed, $m_0^2c^4\beta^2$ must yield $m_0^2c^4$ since it is the only term of second order in mass and fourth order in light speed, hence $m_0c^3\left\{\left(\v{\alpha}\cdot\v{p}\right),\beta\right\} = 0$ since the Klein-Gordon equation does not contain momentum and mass of first order or light speed of third order.
+Firstly it can be seen, that $\beta^2$ must be the identity since $m_0c^4 = m_0c^4\beta^2$. Secondly, writing the zero-term it can be seen that
+\begin{align} \label{eq:0=anticommutatorOfAlpha_iAndBeta}
+	0 &= \left\{\left(\v{\alpha}\cdot\v{p}\right),\beta\right\}
+	= \left\{\sum_{i=1}^3 \alpha_i p_i,\beta\right\}
+	= \sum_{i=1}^3 \alpha_i p_i \beta + \beta \alpha_i p_i
+	= \sum_{i=1}^3 \left(\alpha_i \beta + \beta \alpha_i\right) p_i\:,
+\end{align}
+hence $0 = \left\{\alpha_i,\beta\right\}$ since \cref{eq:0=anticommutatorOfAlpha_iAndBeta} must be valid for an arbitrary $p_i$. Lastly
+\begin{equation}
+\begin{aligned}
+	\v{p}^2 &= \left(\v{\alpha}\cdot\v{p}\right)^2
+	= \sum_{i=1}^3 \alpha_i p_i \sum_{j=1}^3 \alpha_j p_j
+	= \sum_{i=1}^3 \sum_{j=1}^3 p_i p_j \alpha_i \alpha_j
+	= \sum_{i=1}^3 p_i p_j \alpha_i \alpha_j + p_j p_i \alpha_j \alpha_i \\
+	&= \begin{cases}	
+		\begin{array}{ll}
+			\sum_{i=1}^3 2p_i^2\alpha_i^2 & \text{for } i = j \\
+			\sum_{i=1}^3 p_i p_j \left\{\alpha_i\alpha_j\right\} & \text{for } i\ne j
+		\end{array}
+	\end{cases} \: ,
+\end{aligned}
+\end{equation}
+hence $\left\{\alpha_i,\alpha_j\right\} = 2\delta_{ij}$ since $\v{p}^2$ only consist of the quadratic terms of $p_i$.
+For $\Psi$ to satisfy both the Dirac equation and the Klein-Gordon equation we find that $\v{\alpha}$ and $\beta$ must satisfy
+\begin{align}
+	\left\{\alpha_i,\alpha_j\right\} = 2\delta_{ij} \: , \quad \left\{\alpha_i,\beta\right\} = 0 \: , \quad \text{and} \quad \beta^2 = 1 \: ,
+\end{align}
+which defines the Clifford algebra. (SOMETHING MORE HERE(?))
+
+Another demand of the Dirac equation is that the Dirac Hamiltonian shall be hermitian since the energy is an observable. If $\op{H}_D$ is hermitian
+\begin{equation} \label{eq:ShowAlphaAndBetaHermitian}
+\begin{aligned}
+	c\left(\v{\alpha}\cdot\v{p}\right) + \beta m_0c^2 = \op{H}_D
+	&= \op{H}_D\dak = c\left(\v{\alpha}\cdot\v{p}\right)\dak + m_0 c^2\beta\dak \\
+	\Rightarrow \quad c\left(\v{\alpha} - \v{\alpha}\dak\right)\cdot\v{p} &= m_0c^2\left(\beta\dak - \beta\right) \: ,
+\end{aligned}
+\end{equation}
+since $\v{p}$ is an observable, $\v{p} = \v{p}\dak$. By the principle of relativity choosing the frame of reference for the particle, where $\v{p} = \v{0}$, to calculate $\beta$ is valid (OMFORMULERING???(?))
+\begin{align}
+	0 &= m_0c^2\left(\beta\dak - \beta\right) \quad
+	\Rightarrow \quad \beta = \beta\dak \: ,
+\end{align}
+and using this to calculate $\v{\alpha}$ for an arbitrary $\v{p}$ yields
+\begin{align}
+	0 &= \quad c\left(\v{\alpha} - \v{\alpha}\dak\right)\cdot\v{p} \quad
+	\Rightarrow \quad \v{\alpha} = \v{\alpha}\dak \: ,
+\end{align}
+hence both $\v{\alpha}$ and $\beta$ shall be hermitian for $\op{H}_D$ to be hermitian.
+
+It turns out also to be important for the coefficients to be traceless, \cite{schlippe_qm07-08.pdf_2007}, with trace being the sum of the diagonal elements of a matrix, and these requirements along with linearly independence narrows the possible options to a few, that in the Dirac-Pauli representation are:
+\begin{align}
+	\alpha_i = \begin{pmatrix}
+		0 & \sigma_i \\
+		\sigma_i & 0 
+	\end{pmatrix}
+	\: , \quad \text{and} \quad
+	\beta = \begin{pmatrix}
+		I_2 & 0 \\
+		0 & -I_2
+	\end{pmatrix} \: ,
+\end{align}
+with $I_2$ being the identity matrix and $\sigma_i$ being the hermitian Pauli spin matrices \cite[eq.~3.2.32]{sakurai_modern_2011}
+\begin{align}
+	\sigma_1 = \begin{pmatrix}
+		0 & 1 \\
+		1 & 0
+	\end{pmatrix}
+	\: , \quad
+	\sigma_2 = \begin{pmatrix}
+		0 & -i \\
+		i & 0
+	\end{pmatrix}
+	\: , \quad \text{and} \quad
+	\sigma_3 = \begin{pmatrix}
+		1 & 0 \\
+		0 & -1
+	\end{pmatrix} \: .
+\end{align}
+Per identities from \cite[p.~169]{sakurai_modern_2011} it can be realised, that $\v{\alpha}$ and $\beta$ satisfy the above stated requirements.
+
+
+
+\section{Existence of the spin}
+Tekst
+
+
+
+\section{Solutions to the Dirac equation for a free particle}
+TEKST

@@ -1,0 +1,20 @@
+\chapter{The Schrödinger equation} \label{chap:SchrodingerEquation}
+
+Considering a non-relativistic particle with mass $m$ and momentum $\mathbf{p}$ in a potential $V$, the total energy can be found as
+\begin{align} \label{eq:Schrodinger_ClassicalTotalEnergy}
+	E &= T + V = \frac{\mathbf{p}^2}{2m} + V \: .
+\end{align}
+Using the operator representations of the energy and momentum,
+\begin{align} \label{Schrodinger_ClassicalToQuantumMechanics_E_p}
+	E \rightarrow i\hbar\pdif{t} \: , \quad
+	\v{p} \rightarrow \frac{\hbar}{i}\boldsymbol\nabla \: ,
+\end{align}
+in \cref{eq:Schrodinger_ClassicalTotalEnergy} and letting it operate on the wave function of a particle, the equation becomes
+\begin{align}
+	i\hbar\pdif{t} \Psi(\v{r},t) &= -\frac{\hbar^2}{2m}\nabla^2\Psi(\v{r},t) + V\Psi(\v{r},t) \: ,
+\end{align}
+which is the Schrödinger equation, hence the Schrödinger equation originate from the non-relativistic equation of momentum, but this changes when in the relativistic realm, hence the energy also changes, and a relativistic Schrödinger-like equation is therefore needed to describe relativistic particles.\\
+%
+SOMETHING WITH THE SOLUTION TO A FREE PARTICLE???(?)\\
+%
+Wanting to construct a relativistic Schrödinger-like equation one may first consider the structure of the Schrödinger equation itself. The Schrödinger equation a differential equation of first order with respect to time and of second order with respect to position, but in special relativity, equations must be covariant, due to Einstein's principle of relativity - the laws of physics are the same in all frames of reference - hence time and space are treated equally. It is therefore reasonable to assume a relativistic Schrödinger-like equation to be a differential equation of either first or second order with respect to both time and position.
