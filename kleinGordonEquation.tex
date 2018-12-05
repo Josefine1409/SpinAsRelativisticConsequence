@@ -1,12 +1,12 @@
 \chapter{The Klein-Gordon Equation}
 The approach is to find a Schrödinger-like equation by replacing the non-relativistic energy with that of a relativistic particle, but otherwise do as normal. Considering a free particle with momentum with momentum $p = |\mathbf{p}|$ and invariant mass $m_0$, the relativistic energy is \cite[eq.~12.34]{uggerhoj_speciel_2016}
-\begin{align}
+\begin{align} \label{eq:EnergyMomentumRelationRelativistic}
 	E &= \sqrt{(\v{p}c)^2 + \left(m_0c^2\right)^2} \: .
 \end{align}
 A Hamiltonian with the above eigenenergy when applied to a momentum-eigenstate $\ket{\mathbf{p}}$ with eigenvalue $\mathbf{p}$ must be found, \cite[chap.~8.1]{sakurai_modern_2011}, but the square root turns out to be a problem in the early efforts to derive a relativistic equation, since the way of of dealing with the square root is via a Taylor expansion,
 \begin{align}
 	H &= \sqrt{\v{p}^2c^2 + m_0^2c^4}	
-	= m_0c^2 \left[1+\frac{\v{p}^2}{m_0^2c^2}\right]^{\frac{1}{2}}
+	= m_0c^2 \left(1+\frac{\v{p}^2}{m_0^2c^2}\right)^{\frac{1}{2}}
 	= m_0c^2 + \frac{\v{p}^2}{2m_0} - \frac{\v{p}^4}{8m_0^3} + \frac{\v{p}^6}{16m_0^5} + \dots \: .
 \end{align}
 This, though, yields a non-covariant wave equation, since the time derivative from \cref{eq:OverordnetStrukturAfQMLigning} will be associated with different order spacial derivatives, which is not desirable.
@@ -23,15 +23,11 @@ Using the operator representations of $E$ and $\v{p}$ from \cref{Schrodinger_Cla
 \end{align}
 which is know as the Klein-Gordon equation.
 
+
+
+\section{Properties of the Klein-Gordon equation}
 The Klein-Gordon equation satisfy nearly all of the desirable qualities of a relativistic wave equation. Firstly it is covariant which a relativistic equation shall be, as stated in \cref{chap:SchrodingerEquation}.
 
-Solutions that we would expect
-
-Conservation of probability
-
-But then the problems are encountered. Probability not positive definite.
-
-
-\section{Problems}
+Solutions that we would expect. Conservation of probability. But then the problems are encountered. Probability not positive definite.
 
 REMEMBER TO WRITE SOMETHING LIKE THIS, BUT NOT JUST THIS SINCE IT'S DIRECTLY FROM SAKURAI: There will be solutions to the wave equation with negative energies; these solutions are necessary to form a complete set of basis states, but they have no obvious physical meaning.

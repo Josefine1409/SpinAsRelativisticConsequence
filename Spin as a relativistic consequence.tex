@@ -41,8 +41,8 @@
 \renewcommand{\d}{\mathrm{d}}
 
 % Hård differentiering
-\newcommand{\dif}[2][]{\frac{\d{#2}}{{\d {#1}}}}
-\newcommand{\diff}[2][]{\frac{\d^{2}{#2}}{{\d {#1}}^2}}
+\newcommand{\dif}[2][]{\frac{\d {#1}}{{\d {#2}}}}
+\newcommand{\diff}[2][]{\frac{\d^{2}{#1}}{{\d {#2}}^2}}
 
 % Partiel differentiering
 \newcommand{\pdif}[2][]{\frac{\partial{#1}}{\partial {#2}}}
@@ -78,6 +78,7 @@
 
 % Vektor med fed skrift
 \renewcommand{\v}[1]{\boldsymbol{#1}}
+\newcommand{\vop}[1]{\v{\op{#1}}} % vector operator
 
 % Enheder
 \usepackage[expproduct = cdot]{siunitx}	        %Bruges \SI{<tal>}{<enhed>}, \si{<enhed>} eller \num{<tal>}.

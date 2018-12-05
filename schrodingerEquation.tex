@@ -13,8 +13,12 @@ in \cref{eq:Schrodinger_ClassicalTotalEnergy} and letting it operate on the wave
 \begin{align}
 	i\hbar\pdif{t} \Psi(\v{r},t) &= -\frac{\hbar^2}{2m}\nabla^2\Psi(\v{r},t) + V\Psi(\v{r},t) \: ,
 \end{align}
-which is the Schrödinger equation, hence the Schrödinger equation originate from the non-relativistic equation of momentum, but this changes when in the relativistic realm, hence the energy also changes, and a relativistic Schrödinger-like equation is therefore needed to describe relativistic particles.\\
-%
-SOMETHING WITH THE SOLUTION TO A FREE PARTICLE???(?)\\
-%
+which is the Schrödinger equation, hence the Schrödinger equation originate from the non-relativistic equation of momentum, but this changes when in the relativistic realm, hence the energy also changes, and a relativistic Schrödinger-like equation is therefore needed to describe relativistic particles.
+
+Considering now the same particle, but free from any potential, i.e. $V=0$, the solution is a generalisation to three dimensions of that found in \cite[eq.~2.94]{griffiths_introduction_2017},
+\begin{align} \label{eq:SolutionFreeParticleSchrodinger}
+	\Psi(\v{r},t) &= A\exp\left(i\left[\v{k}\cdot\v{r} - \frac{\hbar\v{k}^2}{2m}t\right]\right) = A\exp\left(\frac{i}{\hbar}\left[\v{p}\cdot\v{r} - Et\right]\right) \: ,
+\end{align}
+using the Einstein-de Broglie relations, \cref{eq:EinsteinDeBroglieRelations}, and the total energy of the particle is equal to kinetic energy of it due to the lack of potential.
+
 Wanting to construct a relativistic Schrödinger-like equation one may first consider the structure of the Schrödinger equation itself. The Schrödinger equation a differential equation of first order with respect to time and of second order with respect to position, but in special relativity, equations must be covariant, due to Einstein's principle of relativity - the laws of physics are the same in all frames of reference - hence time and space are treated equally. It is therefore reasonable to assume a relativistic Schrödinger-like equation to be a differential equation of either first or second order with respect to both time and position.
