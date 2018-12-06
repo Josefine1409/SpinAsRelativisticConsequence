@@ -1,0 +1,197 @@
+%Dette er utf8x udgaven af LaTeX-templaten. Den er til brug på systemer der kører utf8x, såsom Linux. Hvis du bruger Windows, så er det letteste at bruge TeXmaker som editor.
+% Loader dokumentklassen memoir. Sætter sproget i dokumentet til dansk, papirtypen til A4, sætter dokument til lige store højre og venstre margen, laver en søjler og siger at vi gerne vil lave en artikel, sætter skriftstørrelse til 11pt.
+\documentclass[english,a4paper,oneside,onecolumn,oldfontcommands,article,11pt]{memoir}
+\usepackage[danish]{babel}		%Giver mulighed for dansk orddeling. Slet kun hvis du VED hvad du laver, eller skal skrive noget på engelsk.
+\usepackage[utf8x]{inputenc}	%Her sættes tegnsæt til utf8x.
+\usepackage{graphicx}		%Tillader indsættelse af billeder
+\usepackage{mathtools}		%Ekstra matematik... bare lad den være, du får muligvis brug for den.
+\usepackage{url}		 %bruges til at formattere url'er... kan sagtens udelades.
+\urlstyle{sf} % Url in same font as document (sans serif family)
+\usepackage[colorlinks=false]{hyperref}
+\usepackage[draft]{fixme} % Denne pakke tillader indsættelse af fixme noter ved brug af \fxnote{} som man kan bruge som huske sedler til sig selv.
+
+\usepackage{listings} % Hvis man vil inkludere kode eksempler.
+\lstset{language=matlab,breaklines=True} % Indstiller syntaks highlight til Matlab.
+
+% Caption styles: Laver alle captions om til sans serif fonte og gør dem en smule mindre end brødteksten.
+\captionnamefont{\small\sffamily}
+\captiontitlefont{\small\sffamily}
+
+\usepackage{soul} % lege lege -- Dette er til forsiden
+\sodef\an{}{0.2em}{.9em plus.6em}{1em plus.1em minus.1em}
+\newcommand\stext[1]{\an{\scshape#1}}
+
+
+\usepackage{microtype} % Pakke der proever at fikse badbox problemer. Kun kompatibel med pdflatex.
+% For at indstille margin:
+%	   		         left   right ratio
+\setlrmarginsandblock{2cm}{2cm}{*} % Hvor stjerne betyder udfyldes "automatisk".
+%                     top    bot ratio
+\setulmarginsandblock{2cm}{2cm}{*} % Hvor stjerne betyder udfyldes "automatisk".
+%\setlength{\oddsidemargin}{0cm} %giver mere plads på siden
+\checkandfixthelayout
+
+\pagestyle{simple} %Giver tom footer og sidetal i header
+
+
+%%%%%%%%%% MACROS %%%%%%%%%%
+%\input{macros}
+
+% Differentierings d
+\renewcommand{\d}{\mathrm{d}}
+
+% Hård differentiering
+\newcommand{\dif}[2][]{\frac{\d {#1}}{{\d {#2}}}}
+\newcommand{\diff}[2][]{\frac{\d^{2}{#1}}{{\d {#2}}^2}}
+
+% Partiel differentiering
+\newcommand{\pdif}[2][]{\frac{\partial{#1}}{\partial {#2}}}
+\newcommand{\pdiff}[2][]{\frac{\partial^2{#1}}{\partial {#2}^2}}
+
+% Ligninger nummereres 1.1, 1.2 osv. i chapter 1 og 2.1, 2.2 osv. i chapter 2
+\numberwithin{equation}{chapter}
+
+% Ligninger nummereres 1.1.1, 1.1.2 osv. i section 1 og 2.1.1, 2.1.2 osv. i section 2 - dog også 1.0.1 og 2.0.1 i hhv. chapter 1 og 2.
+%\numberwithin{equation}{section}
+
+% phi defineres pænt
+\renewcommand{\phi}{\varphi}
+
+% Kvantemekanik
+\newcommand{\op}[1]{\hat #1} % operator
+\newcommand{\expect}[1]{\left< #1 \right>} % Forventningsværdi
+\newcommand{\trace}{\ensuremath{\text{Tr}}\xspace}
+\newcommand{\Hilbert}{\ensuremath{\mathcal{H}}}
+\newcommand{\lag}{\ensuremath{{L}}}
+\newcommand{\tr}[1]{\text{Tr}\left(#1\right)} % Trace
+\newcommand{\ptr}[2]{\text{Tr}_{#1}\left(#2\right)} % Partial trace
+\newcommand{\ket}[1]{\left| #1 \right>} % Dirac-notation: ket
+\newcommand{\bra}[1]{\left< #1 \right|} % bra
+\newcommand{\braket}[2]{\left< #1 \vphantom{#2} \, \right|
+  \left. \! #2 \vphantom{#1} \right>} % bracket
+\newcommand{\matrixel}[3]{\left< #1 \vphantom{#2#3} \right|
+  #2 \left| #3 \vphantom{#1#2} \right>} % Bracket med ekstra streg
+\newcommand{\dak}{^\dagger}	% Hermitisk konjugering skrives "\dak"
+
+% Relativitetsteori
+\newcommand{\co}[2]{{#1}_{#2}} % Covariant notation
+\newcommand{\con}[2]{{#1}^{#2}} % Contravariant notation
+\newcommand{\pco}[1]{\co{\partial}{#1}} % Covariant partialdiff
+\newcommand{\pcon}[1]{\con{\partial}{#1}} % Contravariant partialdiff
+
+% Vektor med fed skrift
+\renewcommand{\v}[1]{\boldsymbol{#1}}
+\newcommand{\vop}[1]{\v{\op{#1}}} % vector operator
+
+% Enheder
+\usepackage[expproduct = cdot]{siunitx}	        %Bruges \SI{<tal>}{<enhed>}, \si{<enhed>} eller \num{<tal>}.
+
+% Pæne referencer med \cref
+\usepackage{cleveref}
+\crefname{equation}{equation}{equations}
+\Crefname{equation}{Equation}{Equations}
+\crefname{figure}{figure}{figures}
+\Crefname{figure}{Figure}{Figures}
+\crefname{chapter}{chapter}{chapters}
+\Crefname{chapter}{Chapter}{Chapters}
+\crefname{section}{section}{sections}
+\Crefname{chapter}{Sections}{Sections}
+
+%%%%%%%%%% MACROS ENDED %%%%%%%%%%
+
+
+
+\begin{document}
+%%%%%%%%%% FORSIDE %%%%%%%%%%
+
+% UDKOMMENTER FOR DANSK FORSIDE
+%%Her laver vi en flot forside...
+%\begin{titlingpage}
+%\thispagestyle{empty}
+%\centering
+%{ \setlength{\baselineskip}{24pt}
+%{\Huge \stext{Kvantemekanikprojekt  E2018}} \par\vspace*{2\onelineskip}
+%
+%%%%%% HUSK AT ÆNDRE TITEL HER %%%%%%%%%%%%
+%\large\stext{Projekt nr: 6} \par %<--- I stedet for X skriver du nr. på jeres projekt%%%%% HUSK AT ÆNDRE X HER %%%%%%%%%%%%
+%\large\stext{Titel: Spin as a relativistic consequence} %<--- Her skriver du titlen på jeres projekt%%%%% HUSK AT ÆNDRE TITEL HER %%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\par\vspace*{8\onelineskip} %Her skrives dit navn og dit årskortnummer
+%\large\stext{Navn: Josefine Bj\o rndal Robl} \par
+%\large\stext{Studienummer:  201706760}\par\vspace*{2\onelineskip}
+%%% Skal flere gruppemedlemmer tilføjes, så kopier ovennstående to linjer, eller udkommenter og kopier nedenstående tre linjer ved individuel besvarelse.
+%
+%%\large\stext{Projektet er udf\o rt i samarbejde med:} \par
+%%\large\stext{Navn: XX2 YY2 } \par
+%%\large\stext{{\AA}rskortnummer:  123456789}\par\vspace*{2\onelineskip}
+%
+%\large\stext{Vi afleverer individuelle besvarelser}\par\vspace*{2\onelineskip}
+%\large\stext{Afleveret: dato (Senest 7/12 kl.~12.00 til Ann-Berit Porse 
+%St\ae rk\ae r, 1520-629) }\par\vspace*{2\onelineskip}
+%}
+%\vfill
+%\vspace*{2\onelineskip}
+%%%%% HER SKAL I SKRIVE VEJLEDEREN PÅ PROJEKT OG JERES TØ-INSTRUKTOR %%%%
+%%%%% HVIS I HAR FORSKELLIGE INSTRKTORE TIL TØ, SÅ SKRIV DEM ALLE %%%%%%%
+%\stext{Projektvejleder: Emilie Hindbo Clausen}\par\vspace*{2\onelineskip}
+%\stext{Instruktor: Shaeema Zaman}\par\vspace*{2\onelineskip}
+%\enlargethispage{2\onelineskip}
+%\end{titlingpage}
+
+% ENGELSK FORSIDE
+%Her laver vi en flot forside...
+\begin{titlingpage}
+\thispagestyle{empty}
+\centering
+{ \setlength{\baselineskip}{24pt}
+{\Huge \stext{Project in Quantum Mechanics E2018}} \par\vspace*{2\onelineskip}
+\large\stext{Project no.: 6} \par
+\large\stext{Title: Spin as a relativistic consequence}
+\par\vspace*{8\onelineskip} %Her skrives dit navn og dit årskortnummer
+\large\stext{Name: Josefine Bj\o rndal Robl} \par
+\large\stext{Student number: 201706760}\par\vspace*{2\onelineskip}
+
+\large\stext{The project is worked out in collaboration with:} \par
+\large\stext{Navn: Rasmus Strid} \par
+\large\stext{Student number: 201706621}\par\vspace*{2\onelineskip}
+\large\stext{Navn: Peter Fl\o che Juelsgaard} \par
+\large\stext{Student number: 201705593}\par\vspace*{2\onelineskip}
+
+\large\stext{We hand in individual papers}\par\vspace*{2\onelineskip}
+\large\stext{Handed in: dato (Senest 7/12 kl.~12.00 til Ann-Berit Porse 
+St\ae rk\ae r, 1520-629) }\par\vspace*{2\onelineskip}
+}
+\vfill\vspace*{2\onelineskip}
+\stext{Project supervisor: Emilie Hindbo Clausen}\par\vspace*{2\onelineskip}
+\stext{Instructor: Shaeema Zaman}\par\vspace*{2\onelineskip}
+\enlargethispage{2\onelineskip}
+\end{titlingpage}
+
+%%%%%%%%%% FORSIDE SLUT %%%%%%%%%%
+
+
+%%%%%%%%%% TEKST %%%%%%%%%%%
+
+\input{introduction}
+
+\input{schrodingerEquation}
+
+\input{kleinGordonEquation}
+
+\input{diracEquation}
+
+\input{antimatter}
+
+%%%%%%%%%% TEKST SLUT %%%%%%%%%%
+
+
+%%%%%%%%%% BIBLIOGRAFI %%%%%%%%%%
+\newpage
+\bibliographystyle{unsrt}
+\bibliography{bibliography}
+%%%%%%%%%% BIBLIOGRAFI SLUT %%%%%%%%%%
+
+
+\end{document}
+
+

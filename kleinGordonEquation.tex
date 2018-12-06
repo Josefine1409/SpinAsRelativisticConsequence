@@ -1,0 +1,29 @@
+\chapter{The Klein-Gordon Equation}
+The approach is to find a Schrödinger-like equation by replacing the non-relativistic energy with that of a relativistic particle, but otherwise do as normal. Considering a free particle with momentum $p = |\mathbf{p}|$ and invariant mass $m_0$, the relativistic energy is \cite[eq.~12.34]{uggerhoj_speciel_2016}
+\begin{align} \label{eq:EnergyMomentumRelationRelativistic}
+	E &= \sqrt{(\v{p}c)^2 + \left(m_0c^2\right)^2} \: .
+\end{align}
+A Hamiltonian with the above eigenenergy when applied to a momentum-eigenstate $\ket{\mathbf{p}}$ with eigenvalue $\mathbf{p}$ must be found, \cite[chap.~8.1]{sakurai_modern_2011}, but the square root turns out to be a problem in the early efforts to derive a relativistic equation, since the way of of dealing with the square root is via a Taylor expansion,
+\begin{align}
+	H &= \sqrt{\v{p}^2c^2 + m_0^2c^4}	
+	= m_0c^2 \left(1+\frac{\v{p}^2}{m_0^2c^2}\right)^{\frac{1}{2}}
+	= m_0c^2 + \frac{\v{p}^2}{2m_0} - \frac{\v{p}^4}{8m_0^3} + \frac{\v{p}^6}{16m_0^5} + \dots \: .
+\end{align}
+This, though, yields a non-covariant wave equation, since the time derivative from \cref{eq:OverordnetStrukturAfQMLigning} will be associated with different order spacial derivatives, which is not desirable.
+
+
+\section{Derivation of the Klein-Gordon Equation}
+To avoid these problems first attempts to find a relativistic wave equation used the square of the Hamiltonian, hence the square of the energy, instead of the Hamiltonian, and the energy, itself,
+\begin{align} \label{eq:KleinGordon_EnergySquared}
+	E^2 &= (\v{p}c)^2 + \left(m_0c^2\right)^2 \: .
+\end{align}
+Using the operator representations of $E$ and $\v{p}$ from \cref{Schrodinger_ClassicalToQuantumMechanics_E_p}, and letting it operate on the wave function of a particle \cref{eq:KleinGordon_EnergySquared} becomes
+\begin{align}
+	-\hbar^2 \pdiff{t}\Psi(\v{r},t) &= -\hbar^2c^2\nabla^2\Psi(\v{r},t) + m_0^2c^4\Psi(\v{r},t) \: ,
+\end{align}
+which is known as the Klein-Gordon equation.
+
+
+
+\section{Properties of the Klein-Gordon equation}
+The Klein-Gordon equation satisfy nearly all of the desirable qualities of a relativistic wave equation. Firstly it is covariant,\cite[p.~489]{sakurai_modern_2011}, i.e. independent of the frame of reference, which a relativistic equation shall be, as stated in \cref{chap:SchrodingerEquation}. Secondly the Klein-Gordon equation has solutions that are those expected for a free, relativistic particle of mass $m_0$, hence at the form (på formen af(?)) of \cref{eq:SolutionFreeParticleSchrodinger}. But the equation also comes with the downside of allowing negative probability density, $\rho = 2E|N|^2$ with $N$ denoting the normalization constant of $\Psi$, since the probability density is dependent on the energy, which are also allowed negative as a necessity for the solutions of the Klein-Gordon equation to form at complete set of basis states, \cite[p.~488]{sakurai_modern_2011}.

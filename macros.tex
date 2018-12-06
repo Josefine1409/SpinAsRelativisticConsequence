@@ -1,0 +1,142 @@
+% Engelsk matematik
+\sisetup{decimalsymbol=period}
+
+% Pæne referencer med \cref
+\Crefname{equation}{equation}{equations}
+\Crefname{figure}{figure}{figures}
+
+\usepackage[utf8x]{inputenc}	%Her sættes tegnsæt til utf8x.
+\usepackage{graphicx}		    %Tillader indsættelse af billeder
+\usepackage{mathtools}		    %Ekstra matematik
+
+% Tabeller
+\usepackage{multirow}		% Tillader kombination af rækker i tabeller
+\usepackage{dcolumn}		%Bruges til at lave matematiske tabelsøjler... se datatabel
+\usepackage{booktabs}		%linjer i tabeller...
+\usepackage{subcaption}		% Tillader caption til "subfigures"
+\usepackage[font={small,sl}]{caption}	% Caption med skrå tekst ikke kursiv
+
+\usepackage{wrapfig}		% Tillader ombrydning af tekst ift. figurer
+
+
+% Links til internetsider
+\usepackage{url} % Links skrives "\url{<link>}"
+\newcommand{\furl}[1]{\footnote{ \url{#1}}}	% Links i fodnoter skrives "\furl{<link>}"
+
+% Matematikpakker
+\usepackage{amsmath,amssymb}
+
+% Enheder
+\usepackage[expproduct = cdot]{siunitx}	        %Bruges \SI{<tal>}{<enhed>}, \si{<enhed>} eller \num{<tal>}.
+\sisetup{separate-uncertainty = true}	% Usikkerheder står som (<x> \pm <sig_x>)<enhed>
+\sisetup{range-units = brackets, range-phrase = --}		% Intervaller med enheder som (<x_min> - <xmax>)<enhed>
+\DeclareSIUnit\year{yr}				% Enhed år, skrevet <yr>, defineres som \year
+
+% Matematisk notation
+\newcommand{\dak}{^\dagger}	% Hermitisk konjugering skrives "\dak"
+
+% Lighedstegn med ovenstående betingelser som \xleq{<betingelse>}
+\usepackage{extarrows}
+\newcommand{\xleq}{\xlongequal}
+
+% Pæne græske bogstaver
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\phi}{\varphi}
+
+% Matematiske mængder
+\newcommand{\N}{\ensuremath{\mathbb{N}}} % Naturlige tal
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}} % Hele tal
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}} % Rationelle tal
+\newcommand{\R}{\ensuremath{\mathbb{R}}} % Reelle tal
+\newcommand{\C}{\ensuremath{\mathbb{C}}} % Komplekse tal
+\newcommand{\F}{\ensuremath{\mathbb{F}}} % Legeme tal
+\newcommand{\A}{\ensuremath{\mathbb{A}}} % Algebraiske tal
+
+% Differentialer
+% Differentieres f mht. x n gange skrive \(p)dif[n]{f}{x}, hvor p giver bløde afledede. For n=1 lades parentesen være tom, [].
+\renewcommand*\d{\mathrm{d}}	% Ikke-kursiverede d'er som \d
+\newcommand{\dr}{\d r}			% dr til f.eks. integraler som \dr
+\newcommand{\dx}{\d x}			% dx til f.eks. integraler som \dx
+%haard differentiering
+\newcommand{\dif}[3][]{\frac{\d^{#1}{#3}}{{\d {#2}}^{#1}}}
+
+%partiel differentiering
+\newcommand{\pdif}[3][]{\frac{\partial^{#1}{#3}}{\partial {#2}^{#1}}}
+
+\newcommand{\dt}[1]{\dot{#1}} % afledt mht. t (dot-notation)
+\newcommand{\ddt}[1]{\ddot{#1}} % dbl.afledt mht. t (dbl.dot)
+
+% Vektorer
+\let\vaccent=\v % Omdøb \v{} til \vaccent{}
+%\newcommand{\gv}[1]{{\vec{\mathbf{#1}}}} % Vektor med græske bogstaver
+\renewcommand{\v}[1]{\mathbf{#1}} % Vektor med fed
+\newcommand{\hatvec}[1]{\hat{\mathbf{#1}}}			% Hatvektor
+\newcommand{\ihat}{\mathbf{\hat{\imath}}}		% Enhedsvektor i
+\newcommand{\jhat}{\mathbf{\hat{\jmath}}}		% .. j
+\newcommand{\khat}{\mathbf{\hat{k}}}			% .. k
+\newcommand{\rhat}{\mathbf{\hat{r}}}			% .. r
+\newcommand{\phihat}{\mathbf{\hat{\phi}}}			% .. phi
+\newcommand{\thetahat}{\mathbf{\hat{\theta}}}			% .. theta
+\newcommand{\shat}{\mathbf\boldsymbol{\hat{s}}}			% .. s
+\newcommand{\xhat}{\mathbf{\hat{x}}}			% Enhedsvektor x
+\newcommand{\yhat}{\mathbf{\hat{y}}}			% .. y
+\newcommand{\zhat}{\mathbf{\hat{z}}}			% .. z
+\newcommand{\grad}[1]{\gv{\nabla} #1} % Gradient
+\let\divsymb=\div % Omdøb \div til \divsymb
+\renewcommand{\div}[1]{\gv{\nabla} \cdot \v{#1}} % Divergens
+\newcommand{\curl}[1]{\gv{\nabla} \times \v{#1}} % Curl
+% Vil man tage div eller curl af græske bogstaver,
+% skal man lade argumentetet være fx \gv{\mu} for µ-vektor
+
+
+\newcommand{\e}[1]{\cdot 10^{#1}}					% *10^n ved \e{n}	
+\newcommand{\inv}[1]{\dfrac{1}{#1}}					% 1/x ved \inv{x}
+\newcommand{\invs}[1]{\dfrac{1}{\sqrt{#1}}}			% 1/sqrt{x} ved \invs{x}
+\newcommand{\sto}{\sqrt{2}}							% sqrt{2} ved \sto
+\newcommand{\stre}{\sqrt{3}}							% sqrt{3} ved \stre
+\newcommand{\ha}{\inv{2}}							% ½ ved \ha
+
+% Her omdefineres \exp så det inkl. paranteser, der tilpasser sig i størrelse med syntax \exp{...}
+\let\oldexp\exp
+\renewcommand{\exp}[1]{\oldexp\left( #1 \right)}
+
+% Brøk med parenteser om, der selv tilpasser størrelse, som \pfrac{a}{b} for (a/b)
+\newcommand{\pfrac}[2]{\left(\frac{#1}{#2}\right)}
+
+% Kvantemekanik
+\usepackage{braket} % Smart bra-ket notation
+\newcommand{\ps}[1]{\psi_{#1}}						% psi_<kvantetal> som \ps{<kvantetal>}
+\newcommand{\op}[1]{\hat #1} % operator
+
+\newcommand{\expect}[2]{\Braket{#1|#2|#1}}			% Forventningsværdi af Q i tilstand a som \expect{a}{Q}
+\newcommand{\hilbert}{\ensuremath{\mathcal{H}}}		% Hilbertrums H som \hilbert
+\newcommand{\tr}[1]{\text{Tr}\left(#1\right)} % Trace
+\newcommand{\ptr}[2]{\text{Tr}_{#1}\left(#2\right)} % Partial trace
+
+% Spacing
+\linespread{1.1}
+\newcommand{\tablesize}[2]{
+\setlength{\tabcolsep}{{#1} em}\def\arraystretch {#2}}	% \tablesize{x}{y} gør tabellen x gange bredere og y gange højere
+\newcommand{\alignspace}[1]{\setlength{\jot}{#1}}	% \alignspace{n} gør environmentet align n gange højere
+\newenvironment{nalign}{
+    \begin{equation}
+    \begin{aligned}
+}{
+    \end{aligned}
+    \end{equation}
+    \ignorespacesafterend
+}
+% \nalign giver midterstillet ligningsnummerering
+\newenvironment{mtable}[1]{
+\begin{center}
+$\begin{array}{#1}}{\end{array}$\end{center}}		% \mtable gør hver celle til et math environment
+
+% Referencer med parenteser omkring som \ref{ref1,ref2,...,refN}
+\usepackage{cleveref}
+\creflabelformat{equation}{#2(#1)#3}
+\crefrangelabelformat{equation}{#3(#1)#4 to #5(#2)#6}
+\renewcommand{\ref}[1]{\cref{#1}}
+
+%Lad disse to linjer være. De sørger for at bunden af siden bliver pæn, og fjerner indryk ved afsnit.
+\raggedbottom
+\parindent = 0pt

@@ -1,0 +1,16 @@
+\chapter{Introduction}
+Fundamental for quantum mechanics is the concept of particle-wave duality, expressed by the Einstein-de Broglie relations
+\begin{align} \label{eq:EinsteinDeBroglieRelations}
+	\v{p} = \hbar\v{k} \, \quad \text{and} \quad E = \hbar\omega \: ,
+\end{align}
+where $\v{p}$ and $E$ denotes the momentum and energy of the particle respectively, and $\v{k}$ and $\omega$ denotes the wave vector and the frequency of the wave respectively. Implied from these relations is that the particle must be describable by a wave function, which we demand contains the complete information of a particle's state (of motion) at a given time $t$, hence the wave function must satisfy a differential equation in time, which is the Schrödinger equation
+\begin{align} \label{eq:OverordnetStrukturAfQMLigning}
+	i\hbar\pdif{t}\psi(\v{r},t) &= \op{H}\psi(\v{r},t) \: ,
+\end{align}
+where $\op{H}$ is the Hamiltonian.
+%
+This, however, does not contain all the information we seek from a particle. We are missing a part of the puzzle: The spin of the particle. The complete description of a particle is postulated in \cite[chapter~4.4]{griffiths_introduction_2017} to be a combination of the spatial wave function, $\psi(\v{r},t)$, and a spinor, $\chi(\v{s},t)$,
+\begin{align} \label{eq:TotalWaveFunctionWithSpinAndSpatialFunction}
+	\Psi &= \psi(\v{r},t)\chi(\v{s},t) \: .
+\end{align}
+In the following a more general equation, the Dirac Equation, will be deduced, wherefrom the spin can be found as an integrated part of the particle's state.

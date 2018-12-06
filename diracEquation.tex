@@ -1,0 +1,255 @@
+\chapter{The Dirac Equation}
+%Most of the difficulties of the Klein-Gordon equation originate from it being a second order differential equation with respect to time. To avoid these issues Dirac tried, and in 1928 succeeded, in finding a first order differential equation with respect to time, now called the Dirac equation:
+%\begin{align}
+%	i\hbar\pdif{t}\Psi(\v{r},t) = \op{H}_D\Psi(\v{r},t) \: , \quad \op{H}_D = c\v{\alpha}\cdot\v{p} + m_0c^2\beta \: ,
+%\end{align}
+%where $\op{H}_D$ is the Dirac Hamiltonian.
+
+Most of the difficulties of the Klein-Gordon equation originate from it being a second order differential equation with respect to time. To avoid these issues Dirac tried to, and in 1928 succeed in, finding a first order differential equation with respect to both time and space. This equation should satisfy the time-evolution equation of quantum mechanics, \cref{eq:OverordnetStrukturAfQMLigning}, and the Dirac Hamiltonian, $\op{H}_D$, since considering a free particle, would only depend on the fundamental constants $c$ and $\hbar$, the mass of the particle $m$ and the first order derivative with respect to the particle's coordinates, hence the Dirac equation is
+\begin{align} \label{eq:DiracEquation}
+	i\hbar\pdif{t}\Psi(\v{r},t) = \op{H}_D\Psi(\v{r},t) \: , \quad \op{H}_D = c\v{\alpha}\cdot\v{p} + m_0c^2\beta \: ,
+\end{align}
+where $\v{\alpha}$ and $\beta$ must be dimensionless coefficients since $cp$ and $m_0c^2$ have the dimensions of energy. Also they must be independent of $p_i$ to ensure a linear dependence of the spacial derivative, the momentum, and they must not depend on the coordinates, since this would introduce a force, which shall not be present for a free particle. These independences implies commutation between the momentum and the coefficients.
+
+To gain further information about the coefficients, solutions to the Dirac equation is required to also satisfy the Klein-Gordon equation to secure correct relation between energy and momentum, hence the Dirac Hamiltonian squared must equal the Klein-Gordon Hamiltonian, since the Klein-Gordon equation yields $E^2\Psi = \op{H}_{KG}\Psi$ and the Dirac equation $E\Psi = \op{H}_D\Psi$.
+\begin{align} \label{eq:KG=Dirac^2}
+	c^2\v{p}^2 + m_0^2c^4 &= \left(c\v{\alpha}\cdot\v{p} + m_0c^2\beta\right)^2
+	= c^2\left(\v{\alpha}\cdot\v{p}\right)^2 + m_0^2c^4\beta^2 + m_0c^3\left\{\left(\v{\alpha}\cdot\v{p}\right),\beta\right\} \: ,
+\end{align}
+where $\{\op{A},\op{B}\} = \op{A}\op{B} + \op{B}\op{A}$ is the anticommutator. From \cref{eq:KG=Dirac^2} it can be seen that $c^2\left(\v{\alpha}\cdot\v{p}\right)^2$ must yield $c^2\v{p}^2$ since it is the only term of second order in momentum and in light speed, $m_0^2c^4\beta^2$ must yield $m_0^2c^4$ since it is the only term of second order in mass and fourth order in light speed, hence $m_0c^3\left\{\left(\v{\alpha}\cdot\v{p}\right),\beta\right\} = 0$ since the Klein-Gordon equation does not contain momentum and mass of first order or light speed of third order.
+Firstly it can be seen, that $\beta^2$ must be the identity since $m_0c^4 = m_0c^4\beta^2$. Secondly, writing the zero-term it can be seen that
+\begin{align} \label{eq:0=anticommutatorOfAlpha_iAndBeta}
+	0 &= \left\{\left(\v{\alpha}\cdot\v{p}\right),\beta\right\}
+	= \left\{\sum_{i=1}^3 \alpha_i p_i,\beta\right\}
+	= \sum_{i=1}^3 \alpha_i p_i \beta + \beta \alpha_i p_i
+	= \sum_{i=1}^3 \left(\alpha_i \beta + \beta \alpha_i\right) p_i\:,
+\end{align}
+hence $\left\{\alpha_i,\beta\right\} = 0$ since \cref{eq:0=anticommutatorOfAlpha_iAndBeta} must be valid for an arbitrary $p_i$. Lastly
+\begin{align}
+	\v{p}^2 &= \left(\v{\alpha}\cdot\v{p}\right)^2
+	= \sum_{i=1}^3 \alpha_i p_i \sum_{j=1}^3 \alpha_j p_j
+	= \sum_{i=1}^3 \sum_{j=1}^3 p_i p_j \alpha_i \alpha_j
+	= \begin{cases}	
+		\sum\limits_{i=1}^3\sum\limits_{j=i} p_i^2\alpha_i^2 \\
+		\sum\limits_{i=1}^3\sum\limits_{j \ne i} p_i p_j \left\{\alpha_i\alpha_j\right\}
+	\end{cases} \: ,
+\end{align}
+and since $\v{p}^2$ only consist of quadratic terms of $p_i$ $\alpha_i^2 = 1$, and for every choice of $i$ and $j$ where $j \ne i$, there will be two terms, with equal $p_i p_j$ combination, because there is a sum over both indices, thus
+\begin{align}
+	0 = p_i p_j \alpha_i \alpha_j + p_j p_i \alpha_j \alpha_i
+	&= p_i p_j \left\{\alpha_i\alpha_j\right\} \: ,
+\end{align}
+hence $\left\{\alpha_i,\alpha_j\right\} = 2\delta_{ij}$.
+For $\Psi$ to satisfy both the Dirac equation and the Klein-Gordon equation we find that $\v{\alpha}$ and $\beta$ must satisfy
+\begin{align}
+	\left\{\alpha_i,\alpha_j\right\} = 2\delta_{ij} \: , \quad \left\{\alpha_i,\beta\right\} = 0 \: , \quad \text{and} \quad \beta^2 = 1 \: ,
+\end{align}
+which defines the Clifford algebra.
+
+Another demand of the Dirac equation is that the Dirac Hamiltonian shall be hermitian since the energy is an observable. If $\op{H}_D$ is hermitian
+\begin{equation} \label{eq:ShowAlphaAndBetaHermitian}
+\begin{aligned}
+	c\left(\v{\alpha}\cdot\v{p}\right) + \beta m_0c^2 = \op{H}_D
+	&= \op{H}_D\dak = c\left(\v{\alpha}\cdot\v{p}\right)\dak + m_0 c^2\beta\dak \\
+	\Rightarrow \quad c\left(\v{\alpha} - \v{\alpha}\dak\right)\cdot\v{p} &= m_0c^2\left(\beta\dak - \beta\right) \: ,
+\end{aligned}
+\end{equation}
+since $\v{p}$ is an observable, $\v{p} = \v{p}\dak$. By the principle of relativity choosing the frame of reference for the particle, where $\v{p} = \v{0}$, to calculate $\beta$ still validates the $\beta$ in every other inertial frames.
+\begin{align}
+	0 &= m_0c^2\left(\beta\dak - \beta\right) \quad
+	\Rightarrow \quad \beta = \beta\dak \: ,
+\end{align}
+and using this to calculate $\v{\alpha}$ for an arbitrary $\v{p}$ yields
+\begin{align}
+	0 &= c\left(\v{\alpha} - \v{\alpha}\dak\right)\cdot\v{p} \quad
+	\Rightarrow \quad \v{\alpha} = \v{\alpha}\dak \: ,
+\end{align}
+hence both $\v{\alpha}$ and $\beta$ shall be hermitian for $\op{H}_D$ to be hermitian.
+
+It turns out also to be important for the coefficients to be traceless, \cite{schlippe_qm07-08.pdf_2007}, with trace being the sum of the diagonal elements of a matrix, and these requirements along with linearly independence narrows the possible options to a few, that in the Dirac-Pauli representation are:
+\begin{align}
+	\alpha_i = \begin{pmatrix}
+		0 & \sigma_i \\
+		\sigma_i & 0 
+	\end{pmatrix}
+	\: , \quad \text{and} \quad
+	\beta = \begin{pmatrix}
+		I_2 & 0 \\
+		0 & -I_2
+	\end{pmatrix} \: ,
+\end{align}
+with $I_2$ being the identity matrix and $\sigma_i$ being the hermitian Pauli spin matrices \cite[eq.~3.2.32]{sakurai_modern_2011}
+\begin{align}
+	\sigma_1 = \begin{pmatrix}
+		0 & 1 \\
+		1 & 0
+	\end{pmatrix}
+	\: , \quad
+	\sigma_2 = \begin{pmatrix}
+		0 & -i \\
+		i & 0
+	\end{pmatrix}
+	\: , \quad \text{and} \quad
+	\sigma_3 = \begin{pmatrix}
+		1 & 0 \\
+		0 & -1
+	\end{pmatrix} \: .
+\end{align}
+Per identities from \cite[p.~169]{sakurai_modern_2011} it can be realised, that $\v{\alpha}$ and $\beta$ satisfy the above stated requirements.
+
+The Dirac equation is a relativistic equation, hence it must obey the principle of relativity, thus it must be covariant for it to preserve the invariant space-time interval. (LIDT HURTIGT OM DETTE. LIGNING(?))
+
+
+
+\section{Existence of the spin}
+For the Dirac equation to also be a Schrödinger-like equation, it must have the same properties as the Schrödinger equation, one of them being the positive probability density. For the Dirac equation the probability density is shown to be $\rho = \Psi\dak\Psi$, similar to that of the Schrödinger equation. The other property is conservation of angular momentum $\vop{L}$. This can be shown using Ehrenfest's theorem, stating that the time-dependence of an operator $\op{Q}$ can be found as
+\begin{align}
+	\dif{t}{\expect{Q}} &= \frac{i}{\hbar}\expect{\left[\op{H},\op{Q}\right]} + \expect{\pdif[\op{Q}]{t}} \: .
+\end{align}
+Since time is explicit present i neither the Schrödinger Hamiltonian nor the Dirac Hamiltonian, the angular momentum is conserved if $\vop{L}$ and $\op{H}$ commutes. For the Dirac Hamiltonian the commutator is calculated componentwise using the property of linearity alongside $[\op{A}\op{B},\op{C}] = \op{A}[B,C]+[A,C]\op{B}$, the canonical commutator and the comutation of $\v{\alpha}$ and $\beta$ with both $\v{r}$ and $\v{p}$. This becomes
+\begin{equation} \label{eq:CommutatorOfAngularMomentumAndHamiltonian}
+\begin{aligned}
+	\left[\op{L}_j,\op{H}_D\right]
+	= \bigg[&\left(\v{r}\times\v{p}\right)_j, c\v{\alpha}\cdot\v{p}+\beta m_0c^2\bigg]
+	= i\hbar c\left(\alpha_k p_l - \alpha_l p_k\right)
+	= i\hbar c\left(\alpha \times p\right)_j \\
+	&\Rightarrow \quad \left[\vop{L},\op{H}_D\right] = i\hbar c \v{\alpha}\times\v{p}
+	= i\hbar c\epsilon_{jkl}\v{e}_j\alpha_k p_l \: ,
+\end{aligned}
+\end{equation}
+where $\v{e}_j$ denotes the direction vector, and $\epsilon_{jkl}$ is the Levi-Civita symbol, which is $1$ if the indices are a cyclic permutation, $xyz$, $yzx$ or $zxy$, $-1$ if the they are an anticyclic permutation, i.e. $zyx$, $yxz$ or $xzy$, and zero if two ore more indices are equal. \Cref{eq:CommutatorOfAngularMomentumAndHamiltonian} is not zero, hence the Dirac equation do not conserve the angular momentum. To compensate the spin operator and spin matrix
+\begin{align}
+	\vop{S} &= \frac{\hbar}{2}\v{\sigma}' \: , \quad
+	\v{\sigma}' = \begin{pmatrix}
+		\v{\sigma} & 0 \\
+		0 & \v{\sigma}
+	\end{pmatrix} \: ,
+\end{align}
+is introduced, where $\v{\sigma} = \sum_{j=1}^3 \sigma_j\v{e}_j$, with $\v{e}_j$ as the direction vector, denotes the pauli vector. Computing the commutator of $\vop{S}$ and $\op{H}_D$ as for $\vop{L}$ yields
+\begin{equation} \label{eq:CommutatorOfSpinAndHamiltonian}
+\begin{aligned}
+	\left[\op{S}_j,\op{H}_D\right]
+	= \bigg[\frac{\hbar}{2}
+			\begin{pmatrix}
+				\sigma_j & 0 \\
+				0 & \sigma_j
+			\end{pmatrix}
+		, c\v{\alpha}\cdot\v{p}&+\beta m_0c^2\bigg]
+	= -i\hbar c\left(\alpha_k p_l - \alpha_l p_k\right)
+	= -i\hbar c\left(\alpha \times p\right)_j \\
+	\Rightarrow \quad \left[\vop{S},\op{H}_D\right] &= -i\hbar c \v{\alpha}\times\v{p}
+	= -i\hbar c\epsilon_{jkl}\v{e}_j\alpha_k p_l \: .
+\end{aligned}
+\end{equation}
+Considering now the sum of the angular momentum and the spin operator $\vop{J} = \vop{L} + \vop{S}$, and calculating the commutator between this $\vop{J}$ and the Dirac Hamiltonian
+\begin{align}
+	\left[\vop{J},\op{H}_D\right]
+	&= \left[\vop{L} + \vop{S},\op{H}_D\right]
+	= \left[\vop{L},\op{H}_D\right] + \left[\vop{S},\op{H}_D\right]
+	= 0 \: ,
+\end{align}
+hence the angular momentum $\vop{L}$ along with the spin operator describe the particle's state. For $\vop{J}$ to be the total angular momentum $\vop{S}$ must be verified as an angular momentum by obey \cite[eq.~4.99,4.118]{griffiths_introduction_2017}. Firstly the commutator between $\op{S}_j$ and $\op{S}_k$ yields the result $[\op{S}_j,\vop{S}_k]=i\hbar\epsilon_{jkl}S_l$. Since $[\sigma_j,\sigma_k]=2i\epsilon_{jkl}\sigma_l$, \cite[eq.~3.2.35]{sakurai_modern_2011}, the commutator becomes
+\begin{align}
+	\left[\op{S}_j,\vop{S}_k\right]
+	&= \left[\frac{\hbar}{2}\sigma_j I_2,\frac{\hbar}{2}\sigma_k I_2\right]
+	= \frac{\hbar^2}{4}\left[\sigma_j,\sigma_k\right]I_2^2
+	= \frac{\hbar^2}{4} 2i\epsilon_{jkl}\sigma_l I_2
+	= i\hbar\epsilon_{jkl}\frac{\hbar}{2} \sigma_l I_2
+	= i\hbar\epsilon_{jkl}S_l \: .
+\end{align}
+Secondly the eigenvalues of $\op{S}_z$ and $\vop{S}^2$ yields the eigenvalues $\mu = \hbar m_s$ and $\lambda = \hbar^2s(s+1)$ respectively. This can be done by constructing the eigenvalue equation for each operator and for $\op{S}_z$ finding the characteristic polynomial and for $\vop{S}$ letting the operator work on the eigenfunction $f$. Noting $\v{\sigma} = 3I_2$, since $\v{\sigma}^2 = \sum_{j=1}^3 \sigma_j^2\v{e}_j = \sum_{j=1}^3 \v{e}_j$, the eigenvalues become
+\begin{align}
+	\op{S}_z f &= \lambda f \quad
+	\Rightarrow \quad 0 = \det\left(\op{S}_z-\lambda I_4\right)
+	= \left(-\frac{\hbar^2}{4}+\lambda^2\right)I_2 \quad
+	\Rightarrow \quad \lambda = \pm \frac{\hbar}{2} = \pm \hbar \frac{1}{2} \: , \\
+	%
+	\mu f &= \vop{S}^2f = \left(\frac{\hbar}{2}\v{\sigma}'\right)^2f
+	= \frac{\hbar^2}{4}\v{\sigma}^2I_2^2f
+	= \frac{\hbar^2}{4}3I_2f
+	= \frac{3\hbar^2}{4}f \quad \,
+	\Rightarrow \quad \mu = \frac{\hbar^2}{4} = \hbar^2 \frac{1}{2} \left(\frac{1}{2} + 1\right) \: .
+\end{align}
+Thus $\vop{S}$ is an angular momentum, more precisely the intrinsic or rotational angular momentum, more commonly known as spin, with size $s=1/2$ hence $m_s = \pm 1/2$, while $\vop{L}$ is the orbital angular momentum, thus a non-moving particle can still posses an angular momentum, the spin.
+
+
+
+\section{Solutions to the Dirac equation for a free particle}
+Assuming the structure of the solution to the free particle for the Dirac equation to resemble that of the Schrödinger equation, \cref{eq:SolutionFreeParticleSchrodinger}, the following ansatz is made:
+\begin{align} \label{eq:WaveFunctionAnsatzInDiracEquation}
+	\Psi(\v{r},t) &= u(\v{p})\exp\left(\frac{i}{\hbar}\left[\v{p}\cdot\v{r} - Et\right]\right) \: ,
+\end{align}
+where $u(\v{p})$ is a four-vector consisting of two two-spinors $\phi$ and $\chi$, since $\Psi$ is required to be a four-component spinor since the Dirac Hamiltonian is represented as a four dimensional quadratic matrix, and the exponential function represent the expected plane wave. Inserting the ansatz in the Dirac equation, \ref{eq:DiracEquation}, yields following eigenvalue equation
+\begin{align} \label{eq:EingenvalueEquationOfTheDiracEquation}
+	Eu(\v{p}) &= \left(c\v{\alpha}\cdot\v{p} + m_0c^2\beta\right)u(\v{p})
+	= \begin{pmatrix}
+		mc^2I_2 & c\v{\sigma}\cdot\v{p} \\
+		c\v{\sigma}\cdot\v{p} & -mc^2I_2
+	\end{pmatrix} u(\v{p})
+	= Mu(\v{p}) \: ,
+\end{align}
+for which the eigenvalue can be found, after calculating that $(\v{\sigma}\cdot\v{p})^2 = \v{p}^2I_2$, as
+\begin{equation} \label{eq:EigenenergyOfTheDiracEquation}
+\begin{aligned}
+	0 = \det\left(M-EI_4\right)
+	&= \det\begin{pmatrix}
+		mc^2I_2-EI_2 & c\v{\sigma}\cdot\v{p} \\
+		c\v{\sigma}\cdot\v{p} & -mc^2I_2-EI_2
+	\end{pmatrix}
+	= -m^2c^4I_2^2 + E^2I_2 - c^2\v{p}^2I_2 \\
+	&\Rightarrow E^2 = c^2\v{p}^2 + m^2c^4 \quad
+	\Rightarrow \quad E = \pm\sqrt{\left(c\v{p}\right)^2 + \left(mc^2\right)^2} \: ,
+\end{aligned}
+\end{equation}
+%since
+%\begin{align}
+%	\v{\sigma}\cdot\v{p} &= \begin{pmatrix}
+%		p_z & p_x-ip_y \\
+%		px+ip_y & -p_z
+%	\end{pmatrix} \quad
+%	\Rightarrow \quad \left(\v{\sigma}\cdot\v{p}\right)^2 = \v{p}^2I_2 \: .
+%\end{align}
+\Cref{eq:EigenenergyOfTheDiracEquation} yields exactly the relativistic connection between the energy and the momentum from \cref{eq:EnergyMomentumRelationRelativistic}, but here there are two possible signs, both positive and negative. Examining the solutions corresponding to the eigenenergies, when $E = \pm\epsilon$, \cref{eq:EingenvalueEquationOfTheDiracEquation} yields
+\begin{equation}
+\begin{aligned}
+	\v{0} &= \left(M \mp\varepsilon I_4\right)u(\v{p})
+	= \begin{pmatrix}
+		mc^2I_2 \mp \varepsilon I_2 & c\v{\sigma}\cdot\v{p} \\
+		c\v{\sigma}\cdot\v{p} & -mc^2I_2 \mp \varepsilon I_2
+	\end{pmatrix} \begin{pmatrix} \phi \\ \chi \end{pmatrix} \\
+	&\Rightarrow \quad \phi = \frac{c\v{\sigma}\cdot\v{p}}{\pm\varepsilon-m_0c^2}\chi \: , \quad \text{and} \quad \chi = \frac{c\v{\sigma}\cdot\v{p}}{\pm\varepsilon+m_0c^2}\phi \: ,
+\end{aligned}
+\end{equation}
+hence $\phi$ and $chi$ interdependent in the solution to the Dirac equation for $E = \pm \varepsilon$, thus choosing the preferred solutions for either energy is valid. Here a sum is preferred to a difference in the denominator
+\begin{align}
+	u^{+}(\v{p}) &=
+		\begin{pmatrix}
+			\phi \\
+			\dfrac{c\v{\sigma}\cdot\v{p}}{\varepsilon+m_0c^2}\phi
+		\end{pmatrix} \: , \quad \text{and} \quad
+		u^{-}(\v{p}) =
+		\begin{pmatrix}
+			-\dfrac{c\v{\sigma}\cdot\v{p}}{\varepsilon+m_0c^2}\chi \\
+			\chi
+		\end{pmatrix} \: .
+\end{align}
+In the non-relativistic limit $|\v{p}| \ll m_0c$, the energy will be $E = \sqrt{(c\v{p})^2 + (m_0c^2)^2} \simeq m_0c^2$, thus
+\begin{align}
+	u^{+}(\v{p}) = \frac{c\v{\sigma}\cdot\v{p}}{\varepsilon+m_0c^2}
+	\simeq \frac{c\v{\sigma}\cdot\v{p}}{2m_0c^2}
+	\simeq 0 \: ,
+\end{align}
+since $\v{\sigma}$ is a unitary operator, hence it conserves the size of the momentum. Therefore the solutions to the non-relativistic free particle can be written as
+\begin{align}
+	u^{+}(\v{p}) &=
+		\begin{pmatrix}
+			\phi \\
+			0
+		\end{pmatrix} \: , \quad \text{and} \quad
+		u^{-}(\v{p}) =
+		\begin{pmatrix}
+			0 \\
+			\chi
+		\end{pmatrix} \: .
+\end{align}
+Since both $\phi$ and $\chi$ are two-component spinors, the non-relativistic solution to the Dirac equation of a free particle reduces to a two-component spinor, hence $u(\v{p})$ must represent the spin, either up or down, of the particle, since \cref{eq:WaveFunctionAnsatzInDiracEquation} resembels \cref{eq:TotalWaveFunctionWithSpinAndSpatialFunction} for a free particle.
